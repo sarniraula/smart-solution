@@ -1,3 +1,5 @@
+import Logo from '../assets/logo.png'; // import at the top
+
 export default function Navbar() {
   return (
     <header className="bg-white shadow-sm">
@@ -5,11 +7,7 @@ export default function Navbar() {
         
         {/* Logo */}
         <a href="/" className="flex items-center">
-          <img
-            src="assets/logo.png"   // <-- your logo path
-            alt="Smart Solution"
-            className="w-auto"  // adjust size as needed
-          />
+          <img src={Logo} alt="Smart Solution" className="w-auto h-20" />
         </a>
 
         <nav className="space-x-6 hidden md:flex">
