@@ -1,17 +1,23 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
-import ReactWhatsapp from "react-whatsapp";
+import { MdEmail, MdPhone } from "react-icons/md";
 
 export default function Hero() {
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState(""); // Add state for phone number
 
-  // WhatsApp number (use your business number)
   const whatsappNumber = "+16478817148";
 
-  // Prefilled message
-  const message = `Hi! I want to inquire about your services. My email is: ${email}`;
+  const handleClick = () => {
+    const waUrl = `https://wa.me/${whatsappNumber.replace(
+      /[^0-9]/g,
+      ""
+    )}?text=${encodeURIComponent(
+      `Hi! I want to inquire about your services. My email is: ${email}, my phone number is: ${phone}`
+    )}`;
+    window.open(waUrl, "_blank");
+  };
 
   return (
     <section className="bg-white py-24 overflow-hidden">
@@ -42,25 +48,36 @@ export default function Hero() {
 
           {/* Form + WhatsApp button */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 mb-3">
+            {/* Email input */}
             <div className="relative flex-1 w-full">
               <MdEmail className="absolute left-3 top-3.5 text-gray-400 text-xl" />
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email for consultation"
+                placeholder="Your email"
                 className="w-full pl-10 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-green-800 transition"
               />
             </div>
 
-            <ReactWhatsapp
-              number={whatsappNumber}
-              message={message}
-              className="flex items-center gap-2 bg-green-800 text-white px-6 py-3 rounded-xl hover:bg-green-700 hover:gap-3 transition-all duration-300 shadow-md cursor-pointer"
+            {/* Phone input */}
+            <div className="relative flex-1 w-full">
+              <MdPhone className="absolute left-3 top-3.5 text-gray-400 text-xl" />
+              <input
+                type="tel"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                placeholder="Your phone"
+                className="w-full pl-10 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-green-800 transition"
+              />
+            </div>
+
+            <button
+              className="flex items-center gap-2 bg-green-800 text-white px-6 py-3 rounded-xl hover:bg-green-700 hover:gap-3 transition-all duration-300 shadow-md"
+              onClick={handleClick}
             >
-              Get a Consultation
-              <FaArrowRight />
-            </ReactWhatsapp>
+              Get a Consultation <FaArrowRight />
+            </button>
           </div>
 
           <p className="text-sm text-gray-500">
