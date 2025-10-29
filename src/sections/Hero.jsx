@@ -1,8 +1,18 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
+import ReactWhatsapp from "react-whatsapp";
 
 export default function Hero() {
+  const [email, setEmail] = useState("");
+
+  // WhatsApp number (use your business number)
+  const whatsappNumber = "+16478817148";
+
+  // Prefilled message
+  const message = `Hi! I want to inquire about your services. My email is: ${email}`;
+
   return (
     <section className="bg-white py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-16">
@@ -30,20 +40,28 @@ export default function Hero() {
             we’re here to guide, support, and empower you every step of the way.
           </p>
 
-          <form className="flex items-center gap-3 mb-3">
-            <div className="relative flex-1">
+          {/* Form + WhatsApp button */}
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 mb-3">
+            <div className="relative flex-1 w-full">
               <MdEmail className="absolute left-3 top-3.5 text-gray-400 text-xl" />
               <input
                 type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email for consultation"
                 className="w-full pl-10 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-green-800 transition"
               />
             </div>
-            <button className="flex items-center gap-2 bg-green-800 text-white px-6 py-3 rounded-xl hover:bg-green-700 hover:gap-3 transition-all duration-300 shadow-md">
+
+            <ReactWhatsapp
+              number={whatsappNumber}
+              message={message}
+              className="flex items-center gap-2 bg-green-800 text-white px-6 py-3 rounded-xl hover:bg-green-700 hover:gap-3 transition-all duration-300 shadow-md cursor-pointer"
+            >
               Get a Consultation
               <FaArrowRight />
-            </button>
-          </form>
+            </ReactWhatsapp>
+          </div>
 
           <p className="text-sm text-gray-500">
             We’re here to support you in every step of your educational journey.
