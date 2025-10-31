@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { ReactTyped } from "react-typed";
 import { FaArrowRight } from "react-icons/fa";
 import { MdEmail, MdPhone } from "react-icons/md";
 
@@ -33,9 +34,13 @@ export default function Hero() {
         >
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
             Empower Your Career with{" "}
-            <span className="text-green-800 relative inline-block">
-              Smart Solution
-              <span className="absolute bottom-0 left-0 w-full h-1 bg-green-700 rounded-full"></span>
+            <span className="block text-green-900 text-center mt-2">
+              <ReactTyped
+                strings={["Smart Solution"]}
+                typeSpeed={90}
+                backSpeed={50}
+                loop
+              />
             </span>
           </h1>
 
