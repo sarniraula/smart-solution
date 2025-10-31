@@ -16,7 +16,7 @@ export default function Navbar() {
           href="/"
           className="flex items-center gap-3 group transition-transform duration-300 hover:scale-105"
         >
-          <div className="relative w-24 overflow-hidden bg-gradient-to-br from-white to-gray-100 shadow-inner">
+          <div className="relative w-28 overflow-hidden">
             <img
               src={Logo}
               alt="Smart Solution"

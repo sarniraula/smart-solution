@@ -9,6 +9,7 @@ import {
   FaClock,
   FaUserTie,
 } from "react-icons/fa";
+import Map from "../components/Map";
 
 export default function Contact() {
   return (
@@ -32,6 +33,9 @@ export default function Contact() {
             Connect with us through your favorite platforms — we’re always here
             to help.
           </p>
+
+          {/* Maps Section */}
+          <Map />
         </motion.div>
 
         {/* Contact Info */}
