@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 import {
   FaUserTie,
   FaPassport,
@@ -7,32 +8,96 @@ import {
   FaFileAlt,
   FaBriefcase,
   FaHome,
-  FaLanguage,
   FaMapMarkedAlt,
   FaGraduationCap,
 } from "react-icons/fa";
 
 export default function Services() {
+  const [flippedIndex, setFlippedIndex] = useState(null);
+
   const services = [
-    { name: "Career Counselling", icon: <FaUserTie /> },
-    { name: "Immigration Case Management", icon: <FaMapMarkedAlt /> },
-    { name: "Private Career College Admissions", icon: <FaGraduationCap /> },
-    // { name: "Tamil/Sinhala to English Translation", icon: <FaLanguage /> },
-    { name: "OSAP Application", icon: <FaFileAlt /> },
-    { name: "Social Assistance OW/ODSP/EI/Housing Application", icon: <FaHandsHelping /> },
-    { name: "Resume Writing", icon: <FaBriefcase /> },
-    { name: "Rental Property Arrangement", icon: <FaHome /> },
-    { name: "Guiding to Find Employment", icon: <FaUserTie /> },
-    { name: "University/Community College OSAP Application", icon: <FaUniversity /> },
-    { name: "Newcomers Settlement Services", icon: <FaHandsHelping /> },
-    { name: "PR/Citizenship Application", icon: <FaPassport /> },
-    { name: "Passport Renewal", icon: <FaPassport /> },
+    {
+      name: "Career Counselling",
+      icon: <FaUserTie />,
+      description: `
+• Assessment & exploration: Evaluate skills, work history, education, and personality to discover suitable career paths.  
+• Goal setting & planning: Help clients create structured career goals and action plans.  
+• Job search assistance: Improve resumes, cover letters, interview skills, and job search strategies.  
+• Training guidance: Inform about educational programs, financial aid, and skills development.  
+• Workplace support: Guide through career transitions, workplace challenges, and job dissatisfaction.  
+• Market insights: Provide job trends, entry requirements, and skill gap information.  
+      `,
+    },
+    {
+      name: "Immigration Case Management",
+      icon: <FaMapMarkedAlt />,
+      description:
+        "We help manage, prepare, and organize your immigration case with full documentation support.",
+    },
+    {
+      name: "Private Career College Admissions",
+      icon: <FaGraduationCap />,
+      description:
+        "Guidance for choosing programs, preparing documents, and navigating admission requirements.",
+    },
+    {
+      name: "OSAP Application",
+      icon: <FaFileAlt />,
+      description:
+        "Complete support for OSAP eligibility, application preparation, documentation, and submission.",
+    },
+    {
+      name: "Social Assistance Applications",
+      icon: <FaHandsHelping />,
+      description:
+        "Full support with OW, ODSP, EI, and Housing applications with personalized guidance.",
+    },
+    {
+      name: "Resume Writing",
+      icon: <FaBriefcase />,
+      description:
+        "Professional resume writing tailored to your strengths, industry, and job goals.",
+    },
+    {
+      name: "Rental Property Arrangement",
+      icon: <FaHome />,
+      description:
+        "Support in finding reliable rental housing for newcomers and students.",
+    },
+    {
+      name: "Guiding to Find Employment",
+      icon: <FaUserTie />,
+      description:
+        "Job matching, interview prep, networking strategies, and employment pathways.",
+    },
+    {
+      name: "University/College OSAP Application",
+      icon: <FaUniversity />,
+      description: "Help with OSAP applications specifically for university & college programs.",
+    },
+    {
+      name: "Newcomers Settlement Services",
+      icon: <FaHandsHelping />,
+      description:
+        "Complete settlement support including housing, forms, employment, and education guidance.",
+    },
+    {
+      name: "PR/Citizenship Application",
+      icon: <FaPassport />,
+      description:
+        "Support with PR renewal, PR card, citizenship forms, documentation, and submission.",
+    },
+    {
+      name: "Passport Renewal",
+      icon: <FaPassport />,
+      description:
+        "Assistance with document preparation, photo guidelines, and renewal application steps.",
+    },
   ];
 
   return (
     <section id="services" className="bg-gray-50 py-24 px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto space-y-16">
-        {/* Heading */}
         <motion.div
           className="text-center"
           initial={{ opacity: 0, y: 30 }}
@@ -44,55 +109,53 @@ export default function Services() {
             Our Services
           </h2>
           <p className="text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            We offer a comprehensive range of professional and settlement services 
-            designed to help you succeed — whether you’re building your career, 
-            pursuing education, or settling in a new country.
+            Explore a complete range of settlement, career, and immigration services—crafted to support your growth and success.
           </p>
         </motion.div>
 
-        {/* Creative Services Display */}
-        <motion.div
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10"
-          initial="hidden"
-          whileInView="visible"
-          variants={{
-            hidden: {},
-            visible: {
-              transition: { staggerChildren: 0.1 },
-            },
-          }}
-          viewport={{ once: true }}
-        >
-          {services.map((service, index) => (
-            <motion.div
-              key={index}
-              className="relative group bg-white rounded-2xl shadow-md hover:shadow-2xl border border-gray-100 transition-all duration-500 hover:-translate-y-2 p-8 text-center flex flex-col items-center"
-              variants={{
-                hidden: { opacity: 0, y: 40 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              transition={{ duration: 0.7 }}
-            >
-              {/* Floating Icon Bubble */}
+        {/* Flip Cards Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          {services.map((service, index) => {
+            const isFlipped = flippedIndex === index;
+
+            return (
               <motion.div
-                className="absolute -top-8 flex items-center justify-center bg-green-100 text-green-800 rounded-full w-16 h-16 shadow-md group-hover:bg-green-800 group-hover:text-white transition-all duration-500"
-                whileHover={{ rotate: 5, scale: 1.1 }}
+                key={index}
+                className="relative w-full h-[240px] cursor-pointer perspective"
+                onClick={() =>
+                  setFlippedIndex(isFlipped ? null : index)
+                }
               >
-                {service.icon}
+                {/* CARD INNER */}
+                <motion.div
+                  className="relative h-full w-full transition-transform duration-700 preserve-3d"
+                  animate={{ rotateY: isFlipped ? 180 : 0 }}
+                  transition={{ duration: 0.7 }}
+                >
+                  {/* FRONT SIDE */}
+                  <div className="absolute inset-0 bg-white border border-gray-100 rounded-2xl shadow-md p-8 flex flex-col items-center justify-center backface-hidden">
+                    <div className="bg-green-100 text-green-800 p-4 rounded-full text-3xl shadow">
+                      {service.icon}
+                    </div>
+                    <h3 className="mt-4 text-lg font-semibold text-gray-900">
+                      {service.name}
+                    </h3>
+                    <div className="w-10 h-1 bg-green-700 rounded-full mt-3"></div>
+                  </div>
+
+                  {/* BACK SIDE */}
+                  <div className="absolute inset-0 bg-green-800 text-white rounded-2xl p-6 overflow-y-auto backface-hidden rotateY-180">
+                    <h3 className="text-lg font-bold mb-3">{service.name}</h3>
+                    <p className="text-sm leading-relaxed whitespace-pre-line">
+                      {service.description}
+                    </p>
+                  </div>
+                </motion.div>
               </motion.div>
+            );
+          })}
+        </div>
 
-              {/* Service Name */}
-              <h3 className="mt-10 text-lg font-semibold text-gray-900 group-hover:text-green-800 transition-colors">
-                {service.name}
-              </h3>
-
-              {/* Subtle decorative line */}
-              <div className="w-10 h-1 bg-green-700 rounded-full mx-auto mt-3 mb-2 group-hover:w-16 transition-all duration-500"></div>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Closing Line */}
         <motion.div
           className="text-center mt-12"
           initial={{ opacity: 0 }}
@@ -101,11 +164,18 @@ export default function Services() {
           viewport={{ once: true }}
         >
           <p className="text-gray-500 text-sm">
-            Every service we provide is designed to simplify your path toward success — 
-            with clarity, care, and professionalism.
+            Every service is crafted to simplify your journey with clarity, care, and professionalism.
           </p>
         </motion.div>
       </div>
+
+      {/* Flip card CSS */}
+      <style>{`
+        .perspective { perspective: 1200px; }
+        .preserve-3d { transform-style: preserve-3d; }
+        .backface-hidden { -webkit-backface-visibility: hidden; backface-visibility: hidden; }
+        .rotateY-180 { transform: rotateY(180deg); }
+      `}</style>
     </section>
   );
 }
