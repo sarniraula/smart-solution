@@ -10,6 +10,7 @@ import {
   FaUserTie,
 } from "react-icons/fa";
 import Map from "../components/Map";
+import buildingImage from '../assets/building.jpeg'
 
 export default function Contact() {
   return (
@@ -47,62 +48,66 @@ export default function Contact() {
           viewport={{ once: true }}
         >
           {/* Left: Contact Details */}
-          <div className="bg-white p-10 rounded-2xl shadow-md border border-gray-100">
-            <div className="flex items-center gap-3 mb-6">
-              <FaUserTie className="text-green-700 text-2xl" />
-              <h3 className="text-2xl font-semibold text-green-800">
-                Contact Information
-              </h3>
-            </div>
-            <ul className="space-y-4 text-gray-700">
-              <li className="flex items-start gap-3">
-                <FaUserTie className="text-green-700 mt-1" />
-                <p>
-                  <span className="font-semibold">Shan Kumar</span>, Career
-                  Counsellor
-                  <br />
-                  Smart Solutions
-                </p>
-              </li>
-              <li className="flex items-start gap-3">
-                <FaMapMarkerAlt className="text-green-700 mt-1" />
-                <p>
-                  2855 Markham Road, Suite 305—01,
-                  <br />
-                  Scarborough, ON M1X 0C3
-                </p>
-              </li>
-              <li className="flex items-start gap-3">
-                <FaPhoneAlt className="text-green-700 mt-1" />
-                <a
-                  href="tel:+16478817148"
-                  className="hover:text-green-800 transition-colors"
-                >
-                  (647) 881-7148
-                </a>
-              </li>
-              <li className="flex items-start gap-3">
-                <FaEnvelope className="text-green-700 mt-1" />
-                <a
-                  href="mailto:no1smartsolution@gmail.com"
-                  className="hover:text-green-800 transition-colors"
-                >
-                  no1smartsolution@gmail.com
-                </a>
-              </li>
-            </ul>
+          <div
+            className="bg-white p-10 rounded-2xl shadow-md border border-gray-100 bg-cover bg-center bg-no-repeat relative"
+            style={{
+              backgroundImage: `url(${buildingImage})`,
+            }}
+          >
+            {/* Overlay to make the text readable */}
+            <div className="absolute inset-0 bg-black/40 rounded-2xl"></div>
 
-            <div className="mt-6">
-              <a
-                href="https://maps.app.goo.gl/YXP6bUVhH3oDmd5p6"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block mt-4 text-green-800 font-semibold underline hover:text-green-600 transition-colors"
-              >
-                View on Map
-              </a>
+            {/* Actual content */}
+            <div className="relative z-10">
+              <div className="flex items-center gap-3 mb-6">
+                <FaUserTie className="text-white text-2xl" />
+                <h3 className="text-2xl font-semibold text-white">
+                  Contact Information
+                </h3>
+              </div>
+
+              <ul className="space-y-4 text-white">
+                <li className="flex items-start gap-3">
+                  <FaUserTie className="text-white mt-1" />
+                  <p>
+                    <span className="font-semibold">Shan Kumar</span>, Career Counsellor
+                    <br />
+                    Smart Solutions
+                  </p>
+                </li>
+
+                <li className="flex items-start gap-3">
+                  <FaMapMarkerAlt className="text-white mt-1" />
+                  <p>
+                    2855 Markham Road, Suite 305—01,
+                    <br />
+                    Scarborough, ON M1X 0C3
+                  </p>
+                </li>
+
+                <li className="flex items-start gap-3">
+                  <FaPhoneAlt className="text-white mt-1" />
+                  <a
+                    href="tel:+16478817148"
+                    className="hover:text-blue-200 transition-colors"
+                  >
+                    (647) 881-7148
+                  </a>
+                </li>
+
+                <li className="flex items-start gap-3">
+                  <FaEnvelope className="text-white mt-1" />
+                  <a
+                    href="mailto:no1smartsolution@gmail.com"
+                    className="hover:text-blue-200 transition-colors"
+                  >
+                    no1smartsolution@gmail.com
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
+
 
           {/* Right: Hours of Operation */}
           <div className="bg-white p-10 rounded-2xl shadow-md border border-gray-100">

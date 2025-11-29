@@ -20,12 +20,12 @@ export default function Services() {
       name: "Career Counselling",
       icon: <FaUserTie />,
       description: `
-• Assessment & exploration: Evaluate skills, work history, education, and personality to discover suitable career paths.  
-• Goal setting & planning: Help clients create structured career goals and action plans.  
-• Job search assistance: Improve resumes, cover letters, interview skills, and job search strategies.  
-• Training guidance: Inform about educational programs, financial aid, and skills development.  
-• Workplace support: Guide through career transitions, workplace challenges, and job dissatisfaction.  
-• Market insights: Provide job trends, entry requirements, and skill gap information.  
+          - Assessment & exploration: Evaluate skills, work history, education, and personality to discover suitable career paths.  
+          - Goal setting & planning: Help clients create structured career goals and action plans.  
+          - Job search assistance: Improve resumes, cover letters, interview skills, and job search strategies.  
+          - Training guidance: Inform about educational programs, financial aid, and skills development.  
+          - Workplace support: Guide through career transitions, workplace challenges, and job dissatisfaction.  
+          - Market insights: Provide job trends, entry requirements, and skill gap information.  
       `,
     },
     {
@@ -145,8 +145,8 @@ export default function Services() {
 
                   {/* BACK SIDE */}
                   <div className="absolute inset-0 bg-green-800 text-white rounded-2xl p-6 overflow-y-auto backface-hidden rotateY-180">
-                    <h3 className="text-lg font-bold mb-3">{service.name}</h3>
-                    <p className="text-sm leading-relaxed whitespace-pre-line">
+                    <h3 className="text-lg font-bold">{service.name}</h3>
+                    <p className="text-sm font-normal leading-relaxed whitespace-pre-line">
                       {service.description}
                     </p>
                   </div>
