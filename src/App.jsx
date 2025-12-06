@@ -19,7 +19,7 @@ function App() {
       <Services />
       <ReferralProgram />
       <Testimonials />
-      <Videos />
+      {/* <Videos /> */}
       <Contact />
     </DefaultLayout>
   )

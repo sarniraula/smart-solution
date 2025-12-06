@@ -6,7 +6,7 @@ import { MdEmail, MdPhone } from "react-icons/md";
 
 export default function Hero() {
   const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState(""); // Add state for phone number
+  const [phone, setPhone] = useState("");
 
   const whatsappNumber = "+16478817148";
 
@@ -21,8 +21,14 @@ export default function Hero() {
   };
 
   return (
-    <section className="bg-white py-24 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-16">
+    <section className="bg-gradient-to-br from-purple-50 via-green-50 to-blue-50 py-28 overflow-hidden relative">
+
+      {/* colorful background circles */}
+      <div className="absolute top-10 left-10 w-56 h-56 bg-pink-300/30 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-10 right-10 w-64 h-64 bg-purple-300/30 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 left-32 w-48 h-48 bg-green-300/20 rounded-full blur-2xl"></div>
+
+      <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-16 relative z-10">
 
         {/* Left side text */}
         <motion.div
@@ -32,9 +38,9 @@ export default function Hero() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
         >
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+          <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 mb-6 leading-tight drop-shadow-sm">
             Empower Your Career with{" "}
-            <span className="block text-green-900 text-center mt-2">
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-green-700 via-blue-700 to-purple-700 mt-2 text-center">
               <ReactTyped
                 strings={["Smart Solution"]}
                 typeSpeed={90}
@@ -44,15 +50,15 @@ export default function Hero() {
             </span>
           </h1>
 
-          <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+          <p className="text-lg text-gray-700 mb-8 leading-relaxed">
             We believe in the power of dreams and the promise of potential. 
             Your career is more than a goal—it's our mission. 
-            With unwavering passion and a deep commitment to your education, 
-            we’re here to guide, support, and empower you every step of the way.
+            With passion and dedication, we guide and empower you every step of the way.
           </p>
 
-          {/* Form + WhatsApp button */}
+          {/* Form */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 mb-3">
+
             {/* Email input */}
             <div className="relative flex-1 w-full">
               <MdEmail className="absolute left-3 top-3.5 text-gray-400 text-xl" />
@@ -61,7 +67,7 @@ export default function Hero() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Your email"
-                className="w-full pl-10 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-green-800 transition"
+                className="w-full pl-10 pr-4 py-3 border rounded-xl bg-white/60 backdrop-blur-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-600 transition"
               />
             </div>
 
@@ -73,20 +79,21 @@ export default function Hero() {
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder="Your phone"
-                className="w-full pl-10 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-green-800 transition"
+                className="w-full pl-10 pr-4 py-3 border rounded-xl bg-white/60 backdrop-blur-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 transition"
               />
             </div>
 
+            {/* Button */}
             <button
-              className="flex items-center gap-2 bg-green-800 text-white px-6 py-3 rounded-xl hover:bg-green-700 hover:gap-3 transition-all duration-300 shadow-md"
+              className="flex items-center gap-2 bg-gradient-to-r from-green-700 via-blue-700 to-purple-700 text-white px-7 py-3 rounded-xl hover:opacity-90 hover:gap-3 transition-all duration-300 shadow-xl"
               onClick={handleClick}
             >
               Get a Consultation <FaArrowRight />
             </button>
           </div>
 
-          <p className="text-sm text-gray-500">
-            We’re here to support you in every step of your educational journey.
+          <p className="text-sm text-gray-600">
+            We’re here to support you every step of your educational journey.
           </p>
         </motion.div>
 
@@ -101,7 +108,7 @@ export default function Hero() {
           <motion.img
             src="https://images.pexels.com/photos/3757369/pexels-photo-3757369.jpeg"
             alt="Career Guidance"
-            className="rounded-2xl shadow-2xl max-w-md cursor-pointer"
+            className="rounded-3xl shadow-2xl max-w-md cursor-pointer border-4 border-white/50 backdrop-blur-xl"
             whileHover={{ scale: 1.05, rotate: 1 }}
             transition={{ type: "spring", stiffness: 200 }}
           />
