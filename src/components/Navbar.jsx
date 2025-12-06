@@ -1,13 +1,35 @@
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaPaperPlane } from "react-icons/fa";
 import Logo from "../assets/logo.png";
 
 export default function Navbar() {
+  const [scrollY, setScrollY] = useState(0);
+  const [hidden, setHidden] = useState(false);
+
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      if (window.scrollY > lastScrollY && window.scrollY > 100) {
+        // scrolling down
+        setHidden(true);
+      } else {
+        // scrolling up
+        setHidden(false);
+      }
+      lastScrollY = window.scrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <motion.header
       initial={{ y: -80, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+      animate={{ y: hidden ? -120 : 0, opacity: 1 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
       className="fixed top-0 left-0 w-full bg-white/70 backdrop-blur-xl shadow-lg z-50 border-b border-gray-200"
     >
       {/* Floating accent circles */}
