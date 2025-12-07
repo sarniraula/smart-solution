@@ -15,6 +15,16 @@ import {
 export default function Services() {
   const [flippedIndex, setFlippedIndex] = useState(null);
 
+  // 🎨 Solid colors for each flipped card
+  const solidColors = [
+    "bg-blue-600",
+    "bg-green-600",
+    "bg-orange-600",
+    "bg-pink-600",
+    "bg-purple-700",
+    "bg-teal-600",
+  ];
+
   const services = [
     { 
       name: "Career Counselling", 
@@ -43,14 +53,10 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="relative py-28 px-6 overflow-hidden bg-gradient-to-br from-purple-100 via-blue-100 to-green-100"
+      className="relative py-28 px-6 overflow-hidden bg-gradient-to-r from-purple-100 via-blue-100 to-green-100"
     >
-      {/* Floating blurred circles */}
-      <div className="absolute top-10 left-10 w-72 h-72 bg-purple-300 opacity-30 blur-3xl rounded-full"></div>
-      <div className="absolute bottom-10 right-10 w-72 h-72 bg-blue-300 opacity-30 blur-3xl rounded-full"></div>
-      <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-green-300 opacity-30 blur-3xl rounded-full"></div>
-
       <div className="relative max-w-7xl mx-auto space-y-16">
+
         {/* HEADER */}
         <motion.div
           className="text-center"
@@ -67,10 +73,11 @@ export default function Services() {
           </p>
         </motion.div>
 
-        {/* CARDS GRID */}
+        {/* GRID */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {services.map((service, index) => {
             const isFlipped = flippedIndex === index;
+            const colorClass = solidColors[index % solidColors.length]; // 🎨 Pick color
 
             return (
               <motion.div
@@ -85,12 +92,10 @@ export default function Services() {
                   className="relative h-full w-full transition-transform duration-700 preserve-3d"
                   animate={{ rotateY: isFlipped ? 180 : 0 }}
                 >
+
                   {/* FRONT */}
                   <div className="absolute inset-0 bg-white/40 backdrop-blur-lg border border-white/50 shadow-xl rounded-3xl p-8 flex flex-col items-center justify-center backface-hidden">
-                    
-                    <div className="p-5 text-3xl rounded-full 
-                      bg-gradient-to-br from-purple-200 via-blue-200 to-green-200 
-                      text-purple-800 shadow-md">
+                    <div className="p-5 text-3xl rounded-full bg-gradient-to-br from-purple-200 via-blue-200 to-green-200 text-purple-800 shadow-md">
                       {service.icon}
                     </div>
 
@@ -101,23 +106,23 @@ export default function Services() {
                     <div className="w-14 h-1 mt-3 bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 rounded-full"></div>
                   </div>
 
-                  {/* BACK */}
-                  <div className="absolute inset-0 rounded-3xl text-white p-6 overflow-y-auto backface-hidden rotateY-180 
-                    bg-gradient-to-br from-purple-700 via-blue-700 to-green-700 shadow-xl">
-                    <h3 className="text-lg font-bold mb-2">
-                      {service.name}
-                    </h3>
-                    <p className="text-sm leading-relaxed">
+                  {/* 🎨 BACK — Solid Color Per Card */}
+                  <div
+                    className={`absolute inset-0 rounded-3xl text-white p-6 overflow-y-auto backface-hidden rotateY-180 shadow-xl ${colorClass}`}
+                  >
+                    <h3 className="text-lg font-bold mb-2">{service.name}</h3>
+                    <p className="text-sm leading-relaxed whitespace-pre-line">
                       {service.description}
                     </p>
                   </div>
+
                 </motion.div>
               </motion.div>
             );
           })}
         </div>
 
-        {/* FOOTER TEXT */}
+        {/* FOOTER */}
         <motion.div
           className="text-center mt-12"
           initial={{ opacity: 0 }}
