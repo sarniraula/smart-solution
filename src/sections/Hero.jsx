@@ -21,13 +21,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="bg-gradient-to-br from-purple-50 via-green-50 to-blue-50 py-28 overflow-hidden relative">
-
-      {/* colorful background circles */}
-      <div className="absolute top-10 left-10 w-56 h-56 bg-pink-300/30 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-10 right-10 w-64 h-64 bg-purple-300/30 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 left-32 w-48 h-48 bg-green-300/20 rounded-full blur-2xl"></div>
-
+    <section className="relative py-32 overflow-hidden bg-white">
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-16 relative z-10">
 
         {/* Left side text */}
@@ -38,9 +32,9 @@ export default function Hero() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
         >
-          <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 mb-6 leading-tight drop-shadow-sm">
+          <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 mb-6 leading-tight">
             Empower Your Career with{" "}
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-green-700 via-blue-700 to-purple-700 mt-2 text-center">
+            <span className="text-brand-primary block mt-2">
               <ReactTyped
                 strings={["Smart Solution"]}
                 typeSpeed={90}
@@ -50,9 +44,9 @@ export default function Hero() {
             </span>
           </h1>
 
-          <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-            We believe in the power of dreams and the promise of potential. 
-            Your career is more than a goal—it's our mission. 
+          <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+            We believe in the power of dreams and the promise of potential.
+            Your career is more than a goal—it's our mission.
             With passion and dedication, we guide and empower you every step of the way.
           </p>
 
@@ -67,7 +61,7 @@ export default function Hero() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Your email"
-                className="w-full pl-10 pr-4 py-3 border rounded-xl bg-white/60 backdrop-blur-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-600 transition"
+                className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-primary transition text-gray-800 placeholder-gray-400 bg-gray-50"
               />
             </div>
 
@@ -79,20 +73,20 @@ export default function Hero() {
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder="Your phone"
-                className="w-full pl-10 pr-4 py-3 border rounded-xl bg-white/60 backdrop-blur-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 transition"
+                className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-primary transition text-gray-800 placeholder-gray-400 bg-gray-50"
               />
             </div>
 
             {/* Button */}
             <button
-              className="flex items-center gap-2 bg-gradient-to-r from-green-700 via-blue-700 to-purple-700 text-white px-7 py-3 rounded-xl hover:opacity-90 hover:gap-3 transition-all duration-300 shadow-xl"
+              className="flex items-center gap-2 bg-brand-primary text-white px-7 py-3 rounded-lg hover:bg-brand-light transition-colors shadow-md font-semibold"
               onClick={handleClick}
             >
               Get a Consultation <FaArrowRight />
             </button>
           </div>
 
-          <p className="text-sm text-gray-600">
+          <p className="text-sm text-gray-500">
             We’re here to support you every step of your educational journey.
           </p>
         </motion.div>
@@ -105,13 +99,15 @@ export default function Hero() {
           transition={{ duration: 1, ease: "easeOut" }}
           viewport={{ once: true }}
         >
-          <motion.img
-            src="https://images.pexels.com/photos/3757369/pexels-photo-3757369.jpeg"
-            alt="Career Guidance"
-            className="rounded-3xl shadow-2xl max-w-md cursor-pointer border-4 border-white/50 backdrop-blur-xl"
-            whileHover={{ scale: 1.05, rotate: 1 }}
-            transition={{ type: "spring", stiffness: 200 }}
-          />
+          <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+            <motion.img
+              src="https://images.pexels.com/photos/3757369/pexels-photo-3757369.jpeg"
+              alt="Career Guidance"
+              className="max-w-md object-cover"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.5 }}
+            />
+          </div>
         </motion.div>
 
       </div>

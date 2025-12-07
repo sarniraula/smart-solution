@@ -1,5 +1,21 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: 'Inter', 'sans-serif';
+
+  --color-brand-primary: #004225;
+  --color-brand-secondary: #EC4899;
+  --color-brand-purple: #8B5CF6;
+  --color-brand-blue: #3B82F6;
+  --color-brand-orange: #F97316;
+  --color-brand-light: #2E7D32;
+  --color-brand-dark: #002d19;
+  --color-brand-glass: rgba(255, 255, 255, 0.1);
+
+  --background-image-glass-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  --backdrop-blur-xs: 2px;
+}
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -8,6 +24,12 @@
   /* color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424; */
+
+  /* Solid Minimal Background */
+  background-color: #f8fafc;
+  /* Slate-50 */
+  color: #1f2937;
+  /* Gray-800 */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

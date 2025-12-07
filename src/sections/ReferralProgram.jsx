@@ -1,116 +1,116 @@
 import { motion } from "framer-motion";
-import { FaGift, FaUsers, FaArrowRight } from "react-icons/fa";
+import { FaGift, FaUsers, FaArrowRight, FaHandHoldingHeart, FaBullhorn } from "react-icons/fa";
 
 export default function ReferralProgram() {
   return (
-    <section
-      id="referral"
-      className="relative py-24 px-6 bg-gradient-to-br from-purple-50 via-green-50 to-blue-50 overflow-hidden"
-    >
-      {/* Floating Soft Gradient Circles */}
-      <div className="absolute top-16 left-20 w-64 h-64 bg-purple-300/30 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-24 right-10 w-72 h-72 bg-green-300/30 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-10 left-1/3 w-56 h-56 bg-blue-300/20 rounded-full blur-2xl"></div>
+    <section id="referral" className="relative py-28 px-6 overflow-hidden bg-gray-50">
+      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center relative z-10">
 
-      {/* Content Wrapper */}
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center relative z-10">
-
-        {/* LEFT CONTENT */}
+        {/* Left Side: Content */}
         <motion.div
-          initial={{ opacity: 0, x: -60 }}
+          initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-700 via-blue-700 to-purple-700 leading-tight mb-6">
-            Share Success, <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-700 to-green-700">
-              Earn Rewards
-            </span>
+          <div className="inline-block px-4 py-1 bg-brand-light/10 text-brand-primary rounded-full text-sm font-semibold mb-6">
+            Help Others, Get Rewarded
+          </div>
+          <h2 className="text-4xl font-bold text-gray-900 mb-6 leading-tight">
+            Refer a Friend & <br /> <span className="text-brand-primary">Earn Great Rewards</span>
           </h2>
-
-          <p className="text-gray-700 text-lg leading-relaxed mb-6">
-            Your journey can inspire others! Refer your friends, family, or colleagues
-            and help them take the first step toward a brighter future.
-            Every referral brings you closer to unlocking
-            <span className="font-semibold text-green-800"> exclusive rewards</span>.
+          <p className="text-gray-600 text-lg mb-8 leading-relaxed">
+            Know someone looking for career guidance or admission support?
+            Refer them to Smart Solution and earn exclusive rewards when they successfully enroll.
           </p>
 
-          {/* Glass Highlight Box */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="bg-white/70 backdrop-blur-xl border border-white/60 shadow-xl rounded-2xl p-6 mb-7 flex items-start gap-4"
-          >
-            <div className="w-14 h-14 rounded-full bg-gradient-to-br from-green-600 via-blue-700 to-purple-700 flex items-center justify-center shadow-lg">
-              <FaGift className="text-white text-2xl" />
+          <div className="bg-white border border-gray-100 shadow-lg rounded-2xl p-6 mb-7 flex items-start gap-4">
+            <div className="p-3 bg-brand-primary/10 rounded-full text-brand-primary">
+              <FaGift className="text-2xl" />
             </div>
-
             <div>
-              <h4 className="font-semibold text-gray-900 text-xl">
-                What You Get
-              </h4>
-              <p className="text-gray-600 text-sm mt-1">
-                Earn rewards for every successful referral. The more you help, the more you earn.
+              <h4 className="text-xl font-bold text-gray-900 mb-2">How it works</h4>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                1. Share your unique referral link.<br />
+                2. Your friend books a consultation.<br />
+                3. You both get rewarded upon enrollment!
               </p>
             </div>
-          </motion.div>
+          </div>
 
-          {/* CTA Button */}
-          <motion.button
-            whileHover={{ scale: 1.07, x: 6 }}
-            whileTap={{ scale: 0.97 }}
-            className="flex items-center gap-2 bg-gradient-to-r from-green-700 via-blue-700 to-purple-700 text-white px-7 py-3.5 rounded-xl shadow-lg hover:shadow-xl transition-all text-lg font-medium"
+          <motion.a
+            href="#contact"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-flex items-center gap-2 px-8 py-3.5 bg-brand-primary text-white rounded-lg shadow-md hover:bg-brand-light transition-all duration-300 font-semibold"
           >
-            Refer Now <FaArrowRight className="text-white" />
-          </motion.button>
+            Start Referring <FaArrowRight />
+          </motion.a>
         </motion.div>
 
-        {/* RIGHT SIDE IMAGE + FLOATING CARDS */}
+        {/* Right Side: Visuals */}
         <motion.div
-          className="relative flex justify-center"
-          initial={{ opacity: 0, x: 60 }}
+          className="relative"
+          initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          {/* Main Image */}
-          <motion.img
-            src="https://images.pexels.com/photos/3184405/pexels-photo-3184405.jpeg"
-            alt="Referral Program"
-            className="w-full max-w-md rounded-3xl shadow-2xl ring-2 ring-white/60"
-            whileHover={{ scale: 1.03 }}
-            transition={{ type: 'spring', stiffness: 200 }}
-          />
-
-          {/* Floating Card #1 */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="absolute -top-8 -left-8 bg-white/80 backdrop-blur-md shadow-xl rounded-xl p-4 flex items-center gap-3 border border-white/60"
-          >
-            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-600 via-blue-700 to-purple-700 flex items-center justify-center">
-              <FaUsers className="text-white text-lg" />
+          {/* Main Card */}
+          <div className="relative z-10 bg-white rounded-3xl shadow-2xl p-8 border border-gray-100 max-w-md mx-auto">
+            <div className="flex items-center justify-between mb-8">
+              <div>
+                <p className="text-gray-500 text-sm uppercase tracking-wider font-medium">Total Earned</p>
+                <h3 className="text-4xl font-bold text-gray-900 mt-1">$1,250</h3>
+              </div>
+              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600 text-xl">
+                <FaHandHoldingHeart />
+              </div>
             </div>
-            <p className="text-sm font-semibold text-gray-700">
-              150+ referrals this year
-            </p>
+
+            <div className="space-y-4">
+              {[
+                { name: "Sarah J.", status: "Enrolled", reward: "+$50" },
+                { name: "Michael B.", status: "Pending", reward: "Processing" },
+                { name: "Jessica L.", status: "Enrolled", reward: "+$50" },
+              ].map((item, i) => (
+                <div key={i} className="flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 transition-colors">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 font-bold text-sm">
+                      {item.name.charAt(0)}
+                    </div>
+                    <div>
+                      <h5 className="font-semibold text-gray-800 text-sm">{item.name}</h5>
+                      <span className={`text-xs ${item.status === 'Enrolled' ? 'text-green-600' : 'text-amber-500'}`}>{item.status}</span>
+                    </div>
+                  </div>
+                  <span className={`text-sm font-bold ${item.reward.includes('+') ? 'text-brand-primary' : 'text-gray-400'}`}>
+                    {item.reward}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8 pt-6 border-t border-gray-100 text-center">
+              <p className="text-brand-blue font-semibold text-sm cursor-pointer hover:underline">View all referrals</p>
+            </div>
+          </div>
+
+          {/* Floating badge */}
+          <motion.div
+            className="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-xl border border-gray-100 z-20 flex items-center gap-3"
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 4, repeat: Infinity, type: "tween" }}
+          >
+            <div className="bg-brand-orange/10 p-2 rounded-lg text-brand-orange">
+              <FaBullhorn />
+            </div>
+            <div>
+              <p className="text-xs text-gray-500 font-medium">New Campaign</p>
+              <p className="text-sm font-bold text-gray-800">Student Bonus</p>
+            </div>
           </motion.div>
 
-          {/* Floating Card #2 */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-            className="absolute bottom-6 -right-6 bg-gradient-to-br from-purple-700 via-blue-700 to-green-700 text-white shadow-xl rounded-xl px-6 py-4"
-          >
-            <p className="text-sm font-semibold">Earn Rewards Instantly</p>
-          </motion.div>
         </motion.div>
       </div>
     </section>

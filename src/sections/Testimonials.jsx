@@ -41,26 +41,26 @@ const testimonials = [
 ];
 
 export default function Testimonials() {
-  const colors = [
-    "from-green-400 via-blue-400 to-purple-500",
-    "from-pink-400 via-red-400 to-yellow-400",
-    "from-indigo-400 via-purple-400 to-pink-500",
+  const solidColors = [
+    "bg-brand-primary",
+    "bg-brand-secondary",
+    "bg-brand-blue",
   ];
 
   return (
-    <section id="testimonials" className="relative py-28 px-6 bg-gradient-to-br from-purple-50 via-green-50 to-blue-50 overflow-hidden">
-      
+    <section id="testimonials" className="relative py-28 px-6 overflow-hidden bg-white">
+
       {/* Floating color blobs */}
-      <div className="absolute top-0 left-10 w-60 h-60 bg-pink-300/30 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-10 right-10 w-64 h-64 bg-purple-300/30 rounded-full blur-3xl"></div>
-      <div className="absolute top-1/3 right-1/4 w-48 h-48 bg-green-300/20 rounded-full blur-2xl"></div>
+      {/* <div className="absolute top-0 left-10 w-60 h-60 bg-brand-secondary/20 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-10 right-10 w-64 h-64 bg-brand-purple/20 rounded-full blur-3xl"></div>
+      <div className="absolute top-1/3 right-1/4 w-48 h-48 bg-brand-primary/20 rounded-full blur-2xl"></div> */}
 
       <div className="max-w-6xl mx-auto text-center mb-16 relative z-10">
         <motion.h2
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl font-bold text-gray-900 mb-4 drop-shadow-md"
+          className="text-4xl font-bold text-brand-primary mb-4"
         >
           Success Stories
         </motion.h2>
@@ -68,7 +68,7 @@ export default function Testimonials() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-gray-700 max-w-2xl mx-auto"
+          className="text-gray-600 max-w-2xl mx-auto text-lg"
         >
           Hear from our students and clients who transformed their dreams into reality with Smart Solution.
         </motion.p>
@@ -82,26 +82,26 @@ export default function Testimonials() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: index * 0.1 }}
             whileHover={{ scale: 1.05, translateY: -5 }}
-            className={`rounded-3xl p-8 shadow-2xl transition-all duration-500 bg-gradient-to-br ${colors[index % colors.length]} relative overflow-hidden`}
+            className={`rounded-2xl p-8 shadow-xl transition-all duration-300 ${solidColors[index % solidColors.length]} relative overflow-hidden`}
           >
-            <FaQuoteLeft className="text-white/30 text-6xl absolute top-4 left-6" />
+            <FaQuoteLeft className="text-white/20 text-6xl absolute top-4 left-6" />
 
-            <div className="flex flex-col items-center mt-4">
+            <div className="flex flex-col items-center mt-4 relative z-10">
               <img
                 src={t.image}
                 alt={t.name}
-                className="w-20 h-20 rounded-full border-4 border-white/30 shadow-md mb-4"
+                className="w-20 h-20 rounded-full border-4 border-white/20 shadow-md mb-4 object-cover"
               />
-              <h3 className="text-lg font-semibold text-white">{t.name}</h3>
-              <p className="text-white/90 mb-3">{t.role}</p>
+              <h3 className="text-lg font-bold text-white">{t.name}</h3>
+              <p className="text-white/90 mb-3 font-medium text-sm">{t.role}</p>
 
-              <div className="flex text-yellow-400 mb-4">
+              <div className="flex text-yellow-300 mb-4">
                 {[...Array(5)].map((_, i) => (
                   <FaStar key={i} />
                 ))}
               </div>
 
-              <p className="text-white/90 leading-relaxed text-sm italic">{t.text}</p>
+              <p className="text-white leading-relaxed text-sm italic font-medium opacity-90 text-center">{t.text}</p>
             </div>
           </motion.div>
         ))}
