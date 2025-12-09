@@ -39,7 +39,18 @@ export default function Services() {
       ` },
     { name: "Immigration Case Management", icon: <FaMapMarkedAlt />, description: "Full documentation support and file management for immigration cases." },
     { name: "Private Career College Admissions", icon: <FaGraduationCap />, description: "Program selection, documentation, and admission guidance." },
-    { name: "OSAP Application", icon: <FaFileAlt />, description: "Support for OSAP eligibility, applications, and documentation." },
+    { name: "OSAP Application", icon: <FaFileAlt />, 
+      description: `
+          - Estimate funding based on tuition, living costs, and financial need.
+          - Explain OSAP includes grants (free money) and loans (repay later).
+          - Application takes 15–30 minutes; approval takes 4–6 weeks.
+          - Funding comes from both federal and Ontario provincial sources.
+          - OSAP first pays tuition, remaining funds go to the student.
+          - Loan repayment starts 6 months after studies end.
+          - Federal portion = interest-free; provincial portion has interest.
+          - Monthly payments depend on total borrowed and income.
+          - RAP (Repayment Assistance Plan) helps reduce payments if needed.
+      `},
     { name: "Social Assistance Applications", icon: <FaHandsHelping />, description: "Support for OW, ODSP, EI, Housing programs and more." },
     { name: "Resume Writing", icon: <FaBriefcase />, description: "Industry-standard professional resume writing." },
     { name: "Rental Property Arrangement", icon: <FaHome />, description: "Housing assistance for newcomers and students." },
